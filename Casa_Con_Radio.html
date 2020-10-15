@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--Colocamos el titulo de la casa-->
+	<title>Casa Seleccion Radoi</title>
+</head>
+<style>
+
+</style>
+
+<body>
+	<div id="contenedor" style="text-align: center;">
+		<!--Con la etiqueta canvas podremos dibujar usando scritp, le colocamos
+		id(para hacer referencia al canvas) le establecemos un ancho al area
+	donde se va a dibujar con el atributo width y con el atributo 
+	se estable la alturaheight()-->
+		<canvas id="lienzo" width="1000px" height="650"
+			style="border:2px solid #023316; background-color: #82cfbf "></canvas>
+	</div>
+	<form>
+		<label><input type="radio" id="black" name="color" onclick="return pintar()">Negro</label><br><br>
+		<label><input type="radio" id="green" name="color" onclick="return pintar()">Verde</label><br><br>
+		<label><input type="radio" id="marron" name="color" onclick="return pintar()">Marron</label><br><br>
+	</form>
+
+</body>
+<script type="text/javascript">
+	/*se declara la variable la cual obtendra el identificador que se le puso al canvas*/
+	var c = document.getElementById("lienzo");
+	var ctx = c.getContext("2d");
+	//circulo sol
+	ctx.beginPath();
+	//se establece un color
+	ctx.strokeStyle = "#FFFF00";
+	//se rellena la figura con el color especificado
+	ctx.fillStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.arc(170, 130, 80, 0, 2 * Math.PI);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//cuadrado casa
+	ctx.beginPath();
+	ctx.fillStyle = "red";
+	ctx.fillRect(120, 190, 250, 250);
+	ctx.fill();
+	ctx.closePath();
+	ctx.stroke();
+
+	//triangulo
+	ctx.beginPath();
+	//mueve la ruta al punto especificado en el lienzo sin crear una linea
+	ctx.moveTo(250, 100);
+	//creaccion de una linea en coordenadas x & y
+	ctx.lineTo(120, 190);
+	ctx.lineTo(370, 190);
+	ctx.fill();
+	ctx.closePath();
+	//linea izquierda
+	ctx.beginPath();
+	ctx.strokeStyle = "#ffffff";
+	ctx.lineWidth = 6;
+	ctx.moveTo(252, 100);
+	ctx.lineTo(120, 190);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//linea derecha
+	ctx.beginPath();
+	ctx.strokeStyle = "#ffffff";
+	ctx.lineWidth = 6;
+	ctx.moveTo(250, 100);
+	ctx.lineTo(370, 190);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//techo lado izquierdo
+	ctx.beginPath();
+	ctx.strokeStyle = "#999999";
+	ctx.lineWidth = 25;
+	ctx.moveTo(258, 76);
+	ctx.lineTo(90, 190);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//techo lado derecho
+	ctx.beginPath();
+	ctx.strokeStyle = "#999999";
+	ctx.lineWidth = 25;
+	ctx.moveTo(245, 76);
+	ctx.lineTo(400, 192);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//Chimenea
+	ctx.beginPath();
+	ctx.strokeStyle = "#804000";
+	ctx.lineWidth = 37;
+	ctx.moveTo(345, 105);
+	ctx.lineTo(344, 150);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//circulo chimenea
+	ctx.beginPath();
+	ctx.strokeStyle = "#c0ca33";
+	ctx.lineWidth = 20;
+	ctx.arc(345, 108, 8, 0, 2 * Math.PI);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//cuadro ventana
+	ctx.beginPath();
+	ctx.strokeStyle = "#ffffff";
+	ctx.fillStyle = "#afb42b";
+	ctx.lineWidth = 4;
+	ctx.rect(170, 215, 150, 150);
+	ctx.fill();
+	ctx.closePath();
+	ctx.stroke();
+	// ventana1
+	ctx.beginPath();
+	ctx.fillStyle = "#ffffff";
+	ctx.fillRect(180, 240, 60, 55);
+	ctx.stroke();
+	// ventana2
+	ctx.fillStyle = "#ffffff";
+	ctx.fillRect(250, 240, 60, 55);
+	ctx.stroke();
+	// ventana3
+	ctx.fillStyle = "#ffffff";
+	ctx.fillRect(180, 300, 60, 55);
+	ctx.stroke();
+	// ventana4
+	ctx.fillStyle = "#ffffff";
+	ctx.fillRect(250, 300, 60, 55);
+	ctx.stroke();
+	ctx.closePath();
+	//lineas sol
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(15, 200);
+	ctx.lineTo(85, 170);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(30, 165);
+	ctx.lineTo(80, 155);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(10, 135);
+	ctx.lineTo(80, 135);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(30, 110);
+	ctx.lineTo(80, 115);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(15, 70);
+	ctx.lineTo(85, 100);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(55, 60);
+	ctx.lineTo(90, 85);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	//linea de enmedio
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(50, 20);
+	ctx.lineTo(100, 70);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(95, 25);
+	ctx.lineTo(115, 55);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(115, 5);
+	ctx.lineTo(135, 47);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(150, 10);
+	ctx.lineTo(155, 40);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(185, 3);
+	ctx.lineTo(180, 40);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(210, 15);
+	ctx.lineTo(200, 45);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 10;
+	ctx.moveTo(245, 10);
+	ctx.lineTo(220, 55);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.strokeStyle = "#FFFF00";
+	ctx.lineWidth = 8;
+	ctx.moveTo(260, 40);
+	ctx.lineTo(235, 65);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+	//Se agrega agua
+	ctx.beginPath();
+	ctx.moveTo(0, 500);
+	ctx.bezierCurveTo(100, 500, 50, 600, 500, 500);
+	ctx.bezierCurveTo(500, 500, 580, 580, 800, 500);
+	ctx.bezierCurveTo(800, 500, 880, 580, 1000, 500);
+	ctx.moveTo(0, 550);
+	ctx.bezierCurveTo(100, 640, 50, 600, 400, 570);
+	ctx.bezierCurveTo(500, 630, 580, 610, 700, 560);
+	ctx.bezierCurveTo(800, 600, 880, 690, 1000, 570);
+	ctx.lineWidth = 30;
+	ctx.strokeStyle = "blue";
+	ctx.stroke();
+
+	//barco
+	function pintar() {
+		/*valida si el color negro esta seleccionado*/
+		if (document.getElementById("black").checked == true) {
+			/*Se dibujan las figuras que forman al barco*/
+			ctx.beginPath();
+			//Se indica el color de relleno de la figura
+			ctx.fillStyle = "black";
+			/*Se dibuja un triangulo*/
+			/*Mueva la figura a un punto en especifico*/
+			ctx.moveTo(510, 550);
+			/*Dibuja las lineas*/
+			ctx.lineTo(600, 550);
+			ctx.lineTo(600, 630);
+			/*Rellena la figura del color que se especifico*/
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "black";
+			ctx.lineWidth = 80;
+			ctx.moveTo(800, 590);
+			ctx.lineTo(600, 590);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+
+			ctx.beginPath();
+			ctx.moveTo(900, 550);//centro
+			ctx.lineTo(800, 550);//arriba
+			ctx.lineTo(800, 630);//abajo
+			ctx.fill();
+		} 
+		if(document.getElementById("green").checked==true){
+			ctx.beginPath();
+			ctx.fillStyle = "green";
+			ctx.moveTo(510, 550);
+			ctx.lineTo(600, 550);
+			ctx.lineTo(600, 630);
+			ctx.fill();
+
+			ctx.beginPath();
+			ctx.strokeStyle = "green";
+			ctx.lineWidth = 80;
+			ctx.moveTo(800, 590);
+			ctx.lineTo(600, 590);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+
+			ctx.beginPath();
+			ctx.moveTo(900, 550);//centro
+			ctx.lineTo(800, 550);//arriba
+			ctx.lineTo(800, 630);//abajo
+			ctx.fill();
+		}
+		/*valida si el color marron esta seleccionado*/
+		if(document.getElementById("marron").checked==true){
+			/*Se dibujan las figuras que forman al barco*/
+			ctx.beginPath();
+			ctx.fillStyle = "#804000";
+			/*Se dibuja un triangulo*/
+			/*Mueva la figura a un punto en especifico*/
+			ctx.moveTo(510, 550);
+			/*Dibuja las lineas*/
+			ctx.lineTo(600, 550);
+			ctx.lineTo(600, 630);
+			ctx.fill();
+			/*Se dibuja el rectangulo*/
+			ctx.beginPath();
+			ctx.strokeStyle = "#804000";
+			ctx.lineWidth = 80;
+			
+			ctx.moveTo(800, 590);
+			ctx.lineTo(600, 590);
+			ctx.fill();
+			ctx.stroke();
+			ctx.closePath();
+			/*Se dibuja el segundo triangulo*/
+			ctx.beginPath();
+			ctx.moveTo(900, 550);//centro
+			ctx.lineTo(800, 550);//arriba
+			ctx.lineTo(800, 630);//abajo
+			ctx.fill();
+		}
+	}
+	ctx.beginPath();
+	ctx.strokeStyle = "#804000";
+	ctx.lineWidth = 30;
+	ctx.moveTo(670, 550);
+	ctx.lineTo(670, 300);
+	ctx.fill();
+	ctx.stroke();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.moveTo(800, 360);
+	ctx.lineTo(690, 300);
+	ctx.lineTo(690, 450);
+	ctx.fill();
+
+	//Mariposa 
+	ctx.beginPath();
+	ctx.arc(600, 200, 10, 0, Math.PI * 2, true);
+	ctx.arc(611, 210, 9, 0, Math.PI * 2, true);
+	ctx.arc(622, 220, 8, 0, Math.PI * 2, true);
+	ctx.arc(633, 230, 7, 0, Math.PI * 2, true);
+	ctx.arc(640, 240, 6, 0, Math.PI * 2, true);
+	ctx.fillStyle = "black";
+	ctx.fill();
+	ctx.closePath();
+
+	ctx.beginPath();
+	ctx.moveTo(610, 215);
+	ctx.lineTo(560, 220);
+	ctx.lineTo(560, 250);
+	ctx.moveTo(610, 215);
+	ctx.lineTo(565, 260);
+	ctx.lineTo(600, 260);
+	ctx.moveTo(615, 210);
+	ctx.lineTo(640, 170);
+	ctx.lineTo(680, 190);
+
+	ctx.moveTo(615, 210);
+	ctx.lineTo(665, 225);
+	ctx.lineTo(685, 200);
+	ctx.fillStyle = "yellow";
+	ctx.fill();
+</script>
+
+</html>

@@ -1,0 +1,181 @@
+<!--Se define el documento que el navegador recibira-->
+<!DOCTYPE html>
+<!--Se inicia el documento-->
+<html>
+<!--Se define el tipo de caracteres-->
+<meta charset="UTF-8">
+<!--Para dar diseño a la tabla hacemos uso de bootstrap a traves del enlace-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<head>
+</head>
+<!--A traves de style se le da estilo a los contenedores donde se encunetran las tablas y los 2 contenedores-->
+<style>
+    /*Se decalara el conrender principal, se usan los atributos background-color(color de fondo del contenedor)
+    border(tamaño del borde y color),width(ancho del contenedor),padding(espacio entre el borde y el contenido)
+    */
+    .contenedorPrincipal {
+        background-color: #00FFFF;
+        border: 5px solid black;
+        width: 1400px;
+        padding: 10px;
+        overflow: hidden;
+        margin: 0px auto;
+    }
+    /*Se realiza el contenedor para los hombres, se usan los atributos background-color(color del contenedor)
+    border(borde del contenedor),width(ancho),padding(espacio entre el borde y el contenido) height(altura del contenedor
+    el cual sera automatico), display(alineacion de los bloques)*/
+    .contenedorHombres {
+        background-color: rgb(190, 221, 170);
+        border: 5px solid rgb(119, 231, 115);
+        width: 600px;
+        padding: 10px;
+        height: auto;
+        word-wrap: break-word;
+        margin: 30px 60px;
+        display: inline-block;
+    }
+    /*Se realiza el contenedor para los hombres, se usan los atributos background-color(color del contenedor)
+    border(borde del contenedor),width(ancho),padding(espacio entre el borde y el contenido) height(altura del contenedor
+    el cual sera automatico), display(alineacion de los bloques)*/
+    .contendorMujeres {
+        background-color: rgb(211, 182, 235);
+        border: 5px solid rgb(118, 62, 139);
+        width: 600px;
+        padding: 10px;
+        margin: 20px 10px;
+        display: inline-block;
+        height: auto;
+        word-wrap: break-word;
+    }
+</style>
+<body>
+    <!--Se declaran las etiquetas con respectivos nombres, al igual que las cajas de texto para ingresar los datos
+    se usan los atributos type(indica que se trata de una caja de texto), name(con el que se identifica cada caja de texto)
+    id(clave de la caja de texto)-->
+    <label>Nombre <input type="text" id="txtNombre" name="Name" /> </label>
+    <label>Estado de Animo <input type="text" id="txtAnimo" name="Name" /> </label>
+    <label>Sexo <input type="text" id="txtSexo" name="Name" /> </label>
+    <!--Se inicia a introducir el codigo script -->
+    <script>
+        /*Se declaran variales para llevar el conteo de las personas ingresadas a la tabla y variables para comparacion
+        de los estados de animo y sexo*/
+        espuesta = 's';
+        i = 1;
+        j = 1;
+        enojado = 0;
+        triste = 0;
+        alegre = 0;
+        nervioso = 0;
+        hombre = 0;
+        mujere = 0;
+        estado = "";
+        nombre = "";
+        sexo = "";
+        nomTabla = "";
+        var sendData;
+        function printHTML(request, response) {
+            return document.getElementById(request).innerHTML += response;
+        }
+        //Funcion que recibe 3 parametros, la cual servira para llenar la tabla
+        function table(nombre, estado, np) {
+            /*Se hacen las comparaciones de los estados de animo de las personas que se van ingresando*/
+            if (estado == "a" || estado == "enojado") {
+                /*Se ingresan en la tabla en el orden segun sea la eleccion del estado de animo*/
+                return '<tbody><tr><td></td><td>' + np + '</td><td>' + nombre + '</td><td><img src="https://image.freepik.com/vector-gratis/emoji-enojado_53876-25519.jpg" width=50 height=50"></td><td></td><td></td><td></td></tr>';
+                /*Se incrementa la variable para contabilizar las personas enojadas*/
+                    enojado++;
+            } else if (estado == "b" || estado == "triste") {
+                /*Se ingresan en la tabla en el orden segun sea la eleccion del estado de animo*/
+                return '<tbody><tr><td></td><td>' + np + '</td><td>' + nombre + '</td><td></td><td><img src="https://i.pinimg.com/236x/48/80/9b/48809b84353e9aebef7b6f3d7c3e1263.jpg" width=50 height=50"</td><td></td><td></td></tr></tbody>';
+                /*Se incrementa la variable para contabilizar las personas triste*/
+                triste++;
+            } else if (estado == "c" || estado == "alegre") {
+                /*Se ingresan en la tabla en el orden segun sea la eleccion del estado de animo*/
+                return '<tbody><tr><td></td><td>' + np + '</td><td>' + nombre + '</td><td></td><td></td><td><img src="https://images.emojiterra.com/google/android-10/512px/1f60a.png" width=50 height=50"></td><td></td></tr></tbody>';
+                /*Se incrementa la variable para contabilizar las personas alegres*/
+                alegre++;
+            } else if (estado == "d" || estado == "nervioso") {
+                /*Se ingresan en la tabla en el orden segun sea la eleccion del estado de animo*/
+                return '<tbody><tr><td></td><td>' + np + '</td><td>' + nombre + '</td><td></td><td></td><td></td><td><img src="https://i.pinimg.com/originals/7d/a2/3b/7da23b41b8ecc2e910e5d36c56993855.jpg" width=50 height=50"></td></tr></tbody>';
+                /*Se incrementa la variable para contabilizar las personas nerviosas*/
+                nervioso++;
+            }
+        }
+        /*Funcion que agrega al final de la tabla las cantidad de hombre o mujeres, las personas enoajas,triste,alegres y nerviosas*/
+        function final(hombres, enojado, triste, alegre, nervioso) {
+            return '<tr><td>TOTALES</td><td>' + hombres + '</td><td></td><td>' + enojado + '</td><td>' + triste + '</td><td>' 
+                + alegre + '</td><td>' + nervioso + '</td></tr>';
+        }
+        /*Se realiza la funcion para la extraccion de los datos ingresados y para realizar las comparaciones
+        respecto al sexo de la persona*/
+        function setDatos() {
+            /*Se valida si el dato ingresado es mujer*/
+            if (document.getElementById('txtSexo').value == "M") {
+                //Se incrementa la variable mujer para llevar el conteo de mujeres ingresadas
+                mujere++;
+                //Se obtienen los datos que se ingresaron a las cajas de texto y se almacenan en una variable
+                nombre = document.getElementById('txtNombre').value
+                estado = document.getElementById('txtAnimo').value
+                sexo = document.getElementById('txtSexo').value
+                //Se alamacena lo que tra la funcion "table" a traves de los parametros(nombre,estado(mujere))
+                sendData = table(nombre, estado, (mujere));
+                //Se asigna a la variable nomTabla el nombre de la tabla a la que van dirigida los datos
+                nomTabla = "mujeres"
+            } else if (document.getElementById('txtSexo').value == "H") {
+                hombre++;
+                nombre = document.getElementById('txtNombre').value
+                estado = document.getElementById('txtAnimo').value
+                sexo = document.getElementById('txtSexo').value
+                sendData = table(nombre, estado, (hombre));
+                nomTabla = "hombres"
+            }
+        }
+
+    </script>
+    <!--Se declara un boton por el cual se le enviaran los datos  a la table
+    se manda a llamar la funcion setDatos y printHTML a la cual se le pasan los parametros de(nomTabla,setData)-->
+    <button type='button' onclick='setDatos(); printHTML(nomTabla, sendData);'>Agregar</button>
+    <script>
+        /*Se declara el contenedor principal*/
+        document.write("<div class=contenedorPrincipal>");
+            /*dentro del contenedor principal se declara el contenedor para mujeres
+            llamando la class de contendorMujeres(trae el diseño que se le dio en la parte de style)*/
+        document.write("<div class=contendorMujeres>");
+            /*Se crea una tabla con el diseño de bootstrap, a traves de los atributos border(contorno de las celdas), 
+            rowspan(union de celdas)Width(ancho), height(alto)*/
+        document.write("<table class='table table-striped table-bordered table-hover table-dark' border=2><thead><tr><th rowspan=2></th><th rowspan=2 width=50 height=30>NP</th><th rowspan=2 width=90>NOMBRE</th>");
+        document.write("<th colspan=4 height=40>Estados de animo</th></tr>");
+        /*Se le agregan los encabezados a la tabla*/
+        document.write("<tr><th>ENOJADO</th><th>TRISTE</th><th>ALEGRE</th><th>Nervioso</th></tr>");
+        document.write("</thead>");
+        /*Se le coloca el id de mujeres con el cual se identificara a la hora de llenar la tabla*/
+        document.write("<tbody class='bg-info' id='mujeres'></tbody>");
+        /*Se termina de crear la tabla*/
+        document.write("</table>");
+        /*Se termina de crear el contenedor*/
+        document.write("</div>");
+        /*dentro del contenedor principal se declara el contenedor para hombres
+            llamando la class de contendorHombres(trae el diseño que se le dio en la parte de style)*/
+        document.write("<div class=contenedorHombres>");
+            /*Se crea una tabla con el diseño de bootstrap, a traves de los atributos border(contorno de las celdas), 
+            rowspan(union de celdas)Width(ancho), height(alto)*/
+        document.write("<table class='table table-striped table-bordered table-hover table-dark' border=2><thead><tr><th rowspan=2></th><th rowspan=2 width=50 height=30>NP</th><th rowspan=2 width=90>NOMBRE</th>");
+        document.write("<th colspan=4 height=40>Estados de animo</th></tr>");
+        /*Se le agregan los encabezados a la tabla*/
+        document.write("<tr><th>ENOJADO</th><th>TRISTE</th><th>ALEGRE</th><th>Nervioso</th></tr>");
+        document.write("</thead>");
+         /*Se le coloca el id de hombres con el cual se identificara a la hora de llenar la tabla*/
+        document.write("<tbody id='hombres'></tbody>");
+       /*Se termina de crear la tabla*/
+        document.write("</table>");
+         /*Se termina de crear el contenedor*/
+        document.write("</div>");
+        /*Se termina de crear el contenedor principal, el que contendra los dos contenedores, para hombre y mujer*/
+        document.write("</div>");
+        /*Se finaiza el apartado de ingreso de codigo JS*/
+    </script>
+    <!--Se cierra la etiqueta <body>, todo dentro de ella se mostrara al usuario-->
+</body>
+<!--Fin del documento-->
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>FRACCCIONES CON UN RECTANGULO</title>
+</head>
+<!--Etiqueta que contendra el contenido que se mostrara al usuario -->
+
+<body>
+	<!--La etiqueta <div> se ocupa para la division de una seccion del HTML -->
+	<div>
+		<!--Creamos un formulario en el que se colocaran los numeros de cuadros que se quieren
+			pintar, con align le indicamos que se coloque en el centro de la pantalla-->
+		<form action="/action_page.php">
+			<label for="cars">Elige una figura:</label>
+			<select name="figur" id="figura">
+				<!--<option value="cuadrado">Cuadrado</option>-->
+				<option value="cuadrado">Cuadrado</option>
+			</select>
+			<br><br>
+			<input type="submit" value="Submit" onclick="hacer()">
+		</form>
+	</div>
+	<!--div canvas-->
+	<div>
+		<!--Se declara el area de trabajo-->
+		<canvas id="lienzo" width="400" height="250" style="border:1px solid #000000;  ">
+		</canvas>
+	</div>
+</body>
+<!--Se indica que se ingresara codigo JS-->
+<script type="text/javascript">
+	//declaramos una variable dondele almacenamos el identificador que se le puso a nuestro canvas
+	var c = document.getElementById("lienzo");
+
+	if (lienzo.getContext) {
+		var ctx = c.getContext("2d");
+		//Limpia los elementos en el canvas
+		ctx.clearRect(0, 0, 500, 250);
+		//Se dibuja el rectangulo que se va a dividir
+		ctx.lineWidth = 1;
+		//pintar el primer rectangulo
+		ctx.fillStyle = "#4db6ac";//color del relleno 
+		ctx.fillRect(80, 80, 250, 100);//dibujar rectangulo
+		ctx.strokeRect(80, 80, 250, 100);//dibujar el rectangulo con borde
+		//Se realiza la funcion para validar el numero de cuadros a 
+		var seleccion = document.getElementById("figura");
+		function hacer() {
+			//var numerador = document.getElementById("n1").value
+			var selected = seleccion.options[seleccion.selectedIndex].value;
+			if (selected == "cuadrado") {
+				document.write("<'input type='text' name='ladoX' value='X' id='ca'style='width: 200px;'>");
+				alert("Puto");
+			}
+		}
+		function Enviar() {
+			ctx.clearRect(0, 0, 500, 250);
+			ctx.fillStyle = "#4db6ac";
+			ctx.fillRect(80, 80, 250, 100);
+			ctx.strokeRect(80, 80, 250, 100);
+			//se declara la variable la que contendra el identificador
+			//de la caja de texto
+
+
+			if (numerador == "1") {
+				var seleccion = document.getElementById("figura").value;
+				//la funcion beginPath ayuda a crear un nuevo trazo
+				/*ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth=4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				ctx.fillRect(80,80,50,50);
+				ctx.strokeRect(80,80,50,50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "#4db6ac";
+				//parte alta rectangulos
+				ctx.strokeRect(130,80,50,50);
+				ctx.strokeRect(180,80,50,50);
+				ctx.strokeRect(230,80,50,50);
+				ctx.strokeRect(280,80,50,50);
+				//parte baja rectangulos
+				ctx.strokeRect(80,130,50,50);
+				ctx.strokeRect(130,130,50,50);
+				ctx.strokeRect(180,130,50,50);
+				ctx.strokeRect(230,130,50,50);
+				ctx.strokeRect(280,130,50,50);
+				//relleno
+				ctx.fill(); 
+				//contorno de la figura
+				ctx.stroke();
+				//cierra el trazo y muestra lo que hay dentro de el
+				ctx.ClosePath();*/
+			}
+			if (numerador == "2") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "#4db6ac";
+				//parte alta rectangulos
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				//parte baja rectangulos
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "3") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "#4db6ac";
+				//parte alta rectangulos
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				//parte baja rectangulos
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "4") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.strokeRect(280, 80, 50, 50);
+				//parte baja rectangulos
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "5") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+
+				ctx.fillRect(280, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "red";
+				//parte baja rectangulos
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "6") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.fillRect(280, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				ctx.fillRect(80, 130, 50, 50);
+				ctx.strokeRect(80, 130, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "red";
+				//parte baja rectangulos
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "7") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.fillRect(280, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				ctx.fillRect(80, 130, 50, 50);
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.fillRect(130, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "#4db6ac";
+				//parte baja rectangulos
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "8") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.fillRect(280, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				ctx.fillRect(80, 130, 50, 50);
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.fillRect(130, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.fillRect(180, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				//color de los rectangulos sobrantes
+				ctx.fillStyle = "#4db6ac";
+				//parte baja rectangulos
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "9") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				ctx.fillStyle = "red";
+				//parte alta rectangulos
+				ctx.fillRect(80, 80, 50, 50);
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.fillRect(130, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				ctx.fillRect(180, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.fillRect(230, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.fillRect(280, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				ctx.fillRect(80, 130, 50, 50);
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.fillRect(130, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.fillRect(180, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.fillRect(230, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+
+				//parte baja rectangulos
+				ctx.strokeRect(280, 130, 50, 50);
+
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+			if (numerador == "10") {
+				ctx.beginPath();
+				//grosor del borde
+				ctx.lineWidth = 4;
+				//dibujamos de nuevo el rectangulo
+				ctx.fillStyle = "red";
+				ctx.fillRect(80, 80, 250, 100);
+				//controno del rectangulo
+				ctx.strokeStyle = "#212121";
+				//pintar el primer rectangulo
+				//ctx.fillStyle = "#ffa726";
+				//parte alta rectangulos
+				ctx.strokeRect(80, 80, 50, 50);
+				ctx.strokeRect(130, 80, 50, 50);
+				ctx.strokeRect(180, 80, 50, 50);
+				ctx.strokeRect(230, 80, 50, 50);
+				ctx.strokeRect(280, 80, 50, 50);
+				//parte baja
+				ctx.strokeRect(80, 130, 50, 50);
+				ctx.strokeRect(130, 130, 50, 50);
+				ctx.strokeRect(180, 130, 50, 50);
+				ctx.strokeRect(230, 130, 50, 50);
+				ctx.strokeRect(280, 130, 50, 50);
+
+				ctx.fill();
+				ctx.stroke();
+				ctx.ClosePath();
+			}
+		}
+	}
+</script>
+
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Casa con sol</title>
+	
+</head>
+<body>
+	<div id="contenedor">
+		<!--El elemento <canvas> se ocupa para poder dibujar graficos usando scripts-->
+			<!--definiremos un id para poder hacer referencia a canvas-->
+			<!--definiremos un tamaño el cual nos va a permitir hacer el diseño y un estilo de con un border de cero pixeles con un color que solo se aplicara en el canvas-->
+		<canvas id="lienzo" width="500px" height="500" style="border:0px solid #000000; background-color: #b2ebf2 ">
+			
+		</canvas>
+	</div>
+	<!--Creamos un formulario en el cual nos sirve para la recopilacion de datos ingresados por el usuario-->
+	<form>
+		<!--La etiqueta label representa una etiqueta para un elemento-->
+		<!--Tipo radio nos ayuda a seleccionar solo una opcion de lo que queremos que haga-->
+		<!--Agregamos el metodo onclick el cual nos ayudara a saber donde se esta dando click y retornaremos el lo que trae la funcion-->
+    	<!--Definimos un atributo llamado name el cual nos ayuda a especificar un nombre para el elemento y un identificador para poder mandar a traerlo en la funcion -->
+		<label><input type="radio" id="rojo" name="color" onclick="return pintar()">Rojo</label><br><br>
+		<label><input type="radio" id="naranja" name="color" onclick="return pintar()">Naranja</label><br><br>
+		<label><input type="radio" id="gris" name="color" onclick="return pintar()">Gris</label><br><br>
+	</form>
+
+</body>
+  
+<script type="text/javascript">
+	//declaramos una variable dondele almacenamos el identificador que se le puso a nuestro canvas
+	var c= document.getElementById("lienzo");
+	//declaramos una funcion la cual nos ayuda a hacer los siguiente condiciones
+	function pintar(){
+		//definimos que si nuestro identificador llamado ROJO, NARANJA O GRIS esta siendo seleccionado convierte a verdadero y hace lo que trae adentro
+		if(document.getElementById("rojo").checked==true){
+			//cuadrado casa
+			//Empezamos a dibujar el circulo sol
+			ctx.beginPath();//empezar nueva forma
+			ctx.fillStyle = "#e53935";//color del relleno 
+			ctx.fillRect(120,190,250,250);//rectangulo
+			ctx.fill();//relleno
+		    ctx.closePath();//se cierra el path
+			ctx.stroke();//grosor del contorno
+
+			//triangulo techo
+			ctx.beginPath();
+	        ctx.fillStyle = "#e53935";
+			ctx.moveTo(250,100);//mueve la ruta al punto especificado en el lienzo sin crear una linea
+		    ctx.lineTo(120,190);//creaccion de una linea 
+		    ctx.lineTo(370,190);
+		    ctx.fill();
+		    ctx.closePath();
+
+		    //techo lado izquierdo
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#e53935";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(258,76);
+		    ctx.lineTo(90,190);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //techo lado derecho
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#e53935";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(245,76);
+		    ctx.lineTo(400,192);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //Chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#e53935";
+		    ctx.lineWidth=37;
+		    ctx.moveTo(345,105);
+		    ctx.lineTo(344,150);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+		    //circulo chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#e53935";
+		    ctx.lineWidth=20;
+		    ctx.arc(345,108,8,0,2 * Math.PI);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+			
+			//cuadro ventana
+			ctx.beginPath();
+			ctx.strokeStyle = "#ffffff";
+			ctx.fillStyle = "#e53935";
+			ctx.lineWidth=4;
+			ctx.rect(170,215,150,150);
+			ctx.fill();
+			ctx.closePath();
+			ctx.stroke();
+
+			// ventana1
+			ctx.beginPath();
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,240,60,55);
+			ctx.stroke();
+			// ventana2
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,240,60,55);
+			ctx.stroke();
+			// ventana3
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,300,60,55);
+			ctx.stroke();
+
+			// ventana4
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,300,60,55);
+			ctx.stroke();
+			ctx.closePath();
+			
+		}
+		if(document.getElementById("naranja").checked==true){
+			//cuadrado casa
+			ctx.beginPath();
+			ctx.fillStyle = "#fb8c00";
+			ctx.fillRect(120,190,250,250);
+			ctx.fill();
+		    ctx.closePath();
+			ctx.stroke();
+
+			//triangulo techo
+			ctx.beginPath();
+	        ctx.fillStyle = "#fb8c00";
+			ctx.moveTo(250,100);
+		    ctx.lineTo(120,190);
+		    ctx.lineTo(370,190);
+		    ctx.fill();
+		    ctx.closePath();
+
+		    //techo lado izquierdo
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#fb8c00";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(258,76);
+		    ctx.lineTo(90,190);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //techo lado derecho
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#fb8c00";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(245,76);
+		    ctx.lineTo(400,192);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //Chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#fb8c00";
+		    ctx.lineWidth=37;
+		    ctx.moveTo(345,105);
+		    ctx.lineTo(344,150);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+		    //circulo chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#fb8c00";
+		    ctx.lineWidth=20;
+		    ctx.arc(345,108,8,0,2 * Math.PI);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+			
+			//cuadro ventana
+			ctx.beginPath();
+			ctx.strokeStyle = "#ffffff";
+			ctx.fillStyle = "#fb8c00";
+			ctx.lineWidth=4;
+			ctx.rect(170,215,150,150);
+			ctx.fill();
+			ctx.closePath();
+			ctx.stroke();
+
+			// ventana1
+			ctx.beginPath();
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,240,60,55);
+			ctx.stroke();
+			// ventana2
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,240,60,55);
+			ctx.stroke();
+			// ventana3
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,300,60,55);
+			ctx.stroke();
+
+			// ventana4
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,300,60,55);
+			ctx.stroke();
+			ctx.closePath();
+
+		}
+		if(document.getElementById("gris").checked==true){
+			//cuadrado casa
+			ctx.beginPath();
+			ctx.fillStyle = "#607d8b";
+			ctx.fillRect(120,190,250,250);
+			ctx.fill();
+		    ctx.closePath();
+			ctx.stroke();
+
+			//triangulo techo
+			ctx.beginPath();
+	        ctx.fillStyle = "#607d8b";
+			ctx.moveTo(250,100);
+		    ctx.lineTo(120,190);
+		    ctx.lineTo(370,190);
+		    ctx.fill();
+		    ctx.closePath();
+
+		    //techo lado izquierdo
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#607d8b";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(258,76);
+		    ctx.lineTo(90,190);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //techo lado derecho
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#607d8b";
+		    ctx.lineWidth=25;
+		    ctx.moveTo(245,76);
+		    ctx.lineTo(400,192);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+
+		    //Chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#607d8b";
+		    ctx.lineWidth=37;
+		    ctx.moveTo(345,105);
+		    ctx.lineTo(344,150);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+		    //circulo chimenea
+		    ctx.beginPath();
+		    ctx.strokeStyle = "#607d8b";
+		    ctx.lineWidth=20;
+		    ctx.arc(345,108,8,0,2 * Math.PI);
+		    ctx.fill();
+		    ctx.stroke();
+		    ctx.closePath();
+			
+			//cuadro ventana
+			ctx.beginPath();
+			ctx.strokeStyle = "#ffffff";
+			ctx.fillStyle = "#607d8b";
+			ctx.lineWidth=4;
+			ctx.rect(170,215,150,150);
+			ctx.fill();
+			ctx.closePath();
+			ctx.stroke();
+
+			// ventana1
+			ctx.beginPath();
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,240,60,55);
+			ctx.stroke();
+			// ventana2
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,240,60,55);
+			ctx.stroke();
+			// ventana3
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(180,300,60,55);
+			ctx.stroke();
+
+			// ventana4
+			ctx.fillStyle = "#ffffff";
+			ctx.fillRect(250,300,60,55);
+			ctx.stroke();
+			ctx.closePath();
+		}
+	}
+
+	if (lienzo.getContext){
+		var ctx= c.getContext("2d");
+		//circulo sol
+		ctx.beginPath();//empezar nueva forma
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.fillStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.arc(170,130,80,0,2* Math.PI);
+	    ctx.fill();//relleno
+	    ctx.stroke();
+	    ctx.closePath();
+            
+	  	//cuadrado casa
+		ctx.beginPath();
+		ctx.fillStyle = "#c0ca33";
+		ctx.fillRect(120,190,250,250);
+		ctx.fill();
+	    ctx.closePath();
+		ctx.stroke();
+
+		//triangulo techo
+		ctx.beginPath();
+        ctx.fillStyle = "#c0ca33";
+		ctx.moveTo(250,100);
+	    ctx.lineTo(120,190);
+	    ctx.lineTo(370,190);
+	    ctx.fill();
+	    ctx.closePath();
+
+	    //linea izquierda
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffffff";
+	    ctx.lineWidth=6;
+	    ctx.moveTo(252,100);
+	    ctx.lineTo(120,190);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    //linea derecha
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffffff";
+	    ctx.lineWidth=6;
+	    ctx.moveTo(250,100);
+	    ctx.lineTo(370,190);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    //techo lado izquierdo
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#c0ca33";
+	    ctx.lineWidth=25;
+	    ctx.moveTo(258,76);
+	    ctx.lineTo(90,190);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    //techo lado derecho
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#c0ca33";
+	    ctx.lineWidth=25;
+	    ctx.moveTo(245,76);
+	    ctx.lineTo(400,192);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+
+	    //Chimenea
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#c0ca33";
+	    ctx.lineWidth=37;
+	    ctx.moveTo(345,105);
+	    ctx.lineTo(344,150);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    //circulo chimenea
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#c0ca33";
+	    ctx.lineWidth=20;
+	    ctx.arc(345,108,8,0,2 * Math.PI);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+		
+		//cuadro ventana
+		ctx.beginPath();
+		ctx.strokeStyle = "#ffffff";
+		ctx.fillStyle = "#afb42b";
+		ctx.lineWidth=4;
+		ctx.rect(170,215,150,150);
+		ctx.fill();
+		ctx.closePath();
+		ctx.stroke();
+
+		// ventana1
+		ctx.beginPath();
+		ctx.fillStyle = "#ffffff";
+		ctx.fillRect(180,240,60,55);
+		ctx.stroke();
+		// ventana2
+		ctx.fillStyle = "#ffffff";
+		ctx.fillRect(250,240,60,55);
+		ctx.stroke();
+		// ventana3
+		ctx.fillStyle = "#ffffff";
+		ctx.fillRect(180,300,60,55);
+		ctx.stroke();
+
+		// ventana4
+		ctx.fillStyle = "#ffffff";
+		ctx.fillRect(250,300,60,55);
+		ctx.stroke();
+		ctx.closePath();
+
+		//lineas sol
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(15,200);
+	    ctx.lineTo(85,170);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(30,165);
+	    ctx.lineTo(80,155);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(10,135);
+	    ctx.lineTo(80,135);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(30,110);
+	    ctx.lineTo(80,115);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(15,70);
+	    ctx.lineTo(85,100);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(55,60);
+	    ctx.lineTo(90,85);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+		//linea de enmedio
+		ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(50,20);
+	    ctx.lineTo(100,70);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(95,25);
+	    ctx.lineTo(115,55);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(115,5);
+	    ctx.lineTo(135,47);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(150,10);
+	    ctx.lineTo(155,40);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(185,3);
+	    ctx.lineTo(180,40);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(210,15);
+	    ctx.lineTo(200,45);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffd740";
+	    ctx.lineWidth=10;
+	    ctx.moveTo(245,10);
+	    ctx.lineTo(220,55);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+	    ctx.beginPath();
+	    ctx.strokeStyle = "#ffa726";
+	    ctx.lineWidth=8;
+	    ctx.moveTo(260,40);
+	    ctx.lineTo(235,65);
+	    ctx.fill();
+	    ctx.stroke();
+	    ctx.closePath();
+	}
+</script>
+</html>

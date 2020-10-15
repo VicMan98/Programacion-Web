@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+
+<head>
+	<!--Se define el titulo de la pagina-->
+	<title>Calculadora</title>
+	<!--Se abre la etiqueta style para agregarle estilo a la calculadora-->
+	<style>
+		/*Se aplica estilo a todas las filas*/
+		tr {
+			/*Se le coloca color trasparente a las filas*/
+			background-color: transparent;
+			/*Borde es de 0*/
+			border: 0px;
+			/*La opacidad de cada elemento es de 1.*/
+			opacity: 1;
+		}
+
+		/*Se le coloca estilo a todos lo botones*/
+		button {
+			/*Se establece el color de los botones*/
+			background-color: midnightblue;
+			/*Se colocan el borde redondo a los botones*/
+			border-radius: 15px;
+			/*Se define el ancho y la altura*/
+			width: 100px;
+			height: 60px;
+		}
+
+		/*Se establece el estilo de la tabla*/
+		table {
+			/*Se pone en el centro*/
+			margin: auto;
+			/*Se le coloca las esquinas redondeadas*/
+			border-radius: 1em;
+			overflow: hidden;
+
+		}
+
+		/*Se establece el estilo para las celdas*/
+		td {
+			/*El color es trasparente*/
+			background-color: transparent;
+			/*Ancho y alto de las celdas*/
+			width: 100;
+			height: 100;
+			/*Se le coloca el borde redondeado*/
+			border-radius: 1em;
+			overflow: hidden;
+		}
+
+		/*estilo del contenedor que lleva la tabla*/
+		div {
+			/*Color del contenedor*/
+			background-color: slategray;
+			/*Se coloca la transparencia*/
+			opacity: .8;
+			/*Ancho y alto del contenedor*/
+			width: 420px;
+			height: 400px;
+			/*Se define el margen del contenedor*/
+			margin: 10px auto;
+			/*distancia entre la tabla y el contenedor*/
+			padding: 20px;
+			/*esquinas cuerveadas del contenedor*/
+			border-radius: 10px;
+		}
+
+		/*Fin de los estilos*/
+	</style>
+</head>
+<!--Se establece que se ingresara codigo JS-->
+<script>
+	/*Se declaran las variables
+	n1 es el numero 1 que se ingresa y n2 el numero 2 que se ingresa, 
+	t se ocupa para almacenar la operacion que se ingresa, oper es con la que 
+	se comparan las operaciones ingresadas */
+	n1 = 0;
+	n2 = 0;
+	oper = "";
+	t = "";
+	/*Fucion que lee la operacion que se realiza */
+	function opera(t) {
+		/*Obtiene el valor que trae la caja de texto*/
+		n1 = document.getElementById('p01').value
+		//Se limpia la caja de texto cuando se presiona una operacion
+		document.getElementById('p01').value = "";
+		//A oper se le asigna la operacion ingresada
+		oper = t;
+	}
+	//Funcion que permite escribir y almacenar los numeros que se ingresan
+	function escribe(i) {
+		//Se cambia el valor de la caja de texto de acuerdo a los numeros ingresados
+		document.getElementById('p01').value += i;
+	}
+	//Funcion que permite limpiar la caja de texto
+	function limpiar() {
+		//Se asigna la caja de texto cadena vacia
+		document.getElementById('p01').value = "";
+	}
+	//Funcion para calcular los resultados
+	function resultado() {
+		//Se almacena el segundo numero que se ingreso
+		n2 = document.getElementById('p01').value
+		//Se valida si el numero 1 es distinto de vacio y la operacion fue suma
+		if (n1 != "" && oper == "suma") {
+			//Se valida si el n2 es vacio
+			if (n2 == "") {
+				//Si es vacio a n2 se le asigna lo que trae n1
+				n2 = n1;
+			}
+			//A la variable resultado se le asigna la suma de los numeros ingresados
+			var resultado = parseInt(n1) + parseInt(n2);
+			//Se cambia el valor de la caja de texto con lo que lleve resultado
+			//y se coloca que sea a 2 digitos
+			document.getElementById('p01').value = resultado.toFixed(2);
+			//Se retorna el resultado
+			return resultado.toFixed(2);
+		}
+		//Se valida si el numero 1 es distinto de vacio y la operacion fue resta
+		if (n1 != "" && oper == "resta") {
+			//Se valida si el n2 es vacio
+			if (n2 == "") {
+				//Si es vacio a n2 se le asigna lo que trae n1
+				n2 = n1;
+			}
+			//A la variable resultado se le asigna la resta de los numeros ingresados
+			var resultado = parseInt(n1) - parseInt(n2);
+			//Se cambia el valor de la caja de texto con lo que lleve resultado
+			//y se coloca que sea a 2 digitos
+			document.getElementById('p01').value = resultado.toFixed(2);
+			//Se retorna el resultado
+			return resultado.toFixed(2);
+		}
+		//Se valida si el numero 1 es distinto de vacio y la operacion fue division
+		if (n1 != "" && oper == "div") {
+			//Se valida si el n2 es vacio
+			if (n2 == "") {
+				//Si es vacio a n2 se le asigna lo que trae n1
+				n2 = n1;
+			}
+			//A la variable resultado se le asigna la division de los numeros ingresados
+			var resultado = parseInt(n1) / parseInt(n2);
+			//Se cambia el valor de la caja de texto con lo que lleve resultado
+			//y se coloca que sea a 2 digitos
+			document.getElementById('p01').value = resultado.toFixed(2);
+			//Se retorna el resultado
+			return resultado.toFixed(2);
+		}
+		//Se valida si el numero 1 es distinto de vacio y la operacion fue multiplicacion
+		if (n1 != "" && oper == "multi") {
+			//Se valida si el n2 es vacio
+			if (n2 == "") {
+				//Si es vacio a n2 se le asigna lo que trae n1
+				n2 = n1;
+			}
+			//A la variable resultado se le asigna la multiplicacion de los numeros ingresados
+			var resultado = parseInt(n1) * parseInt(n2);
+			//Se cambia el valor de la caja de texto con lo que lleve resultado
+			//y se coloca que sea a 2 digitos
+			document.getElementById('p01').value = resultado.toFixed(2);
+			//Se retorna el resultado
+			return resultado.toFixed(2);
+		}
+		if (n1 != "" && oper == "factorial") {
+			if (n2 == "") {
+				var total = 1;
+				for (i = 1; i <= n1; i++) {
+					total = total * i;
+				}
+				document.getElementById('p01').value = total;
+				//return total;
+			}
+
+		}
+	}
+</script>
+<!--Se indica que se le agregara contenido al documento HTML-->
+
+<body>
+	<!--Etiqueta div que tendra a la calculadora-->
+	<div>
+		<!--Se crea una tabla, usando atributos width(ancho de la tabla), height(alto de la tabla)-->
+		<table width=400 height=400 id='t01'>
+			<!--Se crea una fila-->
+			<tr>
+				<!--Se crea una ceda. se usan los atributos colspan(combina celdas), width(ancho de la celda)
+				height(alto de la celda)-->
+				<td colspan="4" width=400 height=50>
+					<!--Se crea la caja de texto, se le aplica style con los atriutos
+				height(alto), width(ancho), background-color(color), se le coloca un id(identificador) un name
+			(nombre)-->
+					<input type="text" style="text-align:right; height:50px; width:400px; background-color: white;"
+						id="p01" name="Name" readonly />
+				</td>
+			</tr>
+			<!--Se crea otra fila-->
+			<tr>
+				<!--Se crea una celda en la que contiene un boton,
+				dentro de button se llama al metodo escribir, para escribir los numeros en la caja de
+			texto cada vez que se preisona-->
+				<td width=50 height=50><button type='button' onclick='escribe(7)'>7</button>
+				</td>
+				<td width=50 height=50><button type='button' onclick='escribe(8)'>8</button>
+				</td>
+				<td width=50 height=50><button " type='button' onclick='escribe(9)'>9</button>
+			</td>
+			<!--Se crea un boton en la que se manda a llamar el metodo limpiar, el cual borra los numeros
+			que se ingresan en la caja de texto-->
+			<td width=50 height=50><button  type='button' onclick='limpiar()'>CE</button>
+			</td>
+			</tr>
+			<tr>
+			<td width=50 height=50><button  type='button' onclick='escribe(4)'>4</button>
+			</td>
+			<td width=50 height=50><button  type='button' onclick='escribe(5)'>5</button>
+			</td>
+			<td width=50 height=50><button  type='button' onclick='escribe(6)'>6</button>
+			</td>
+			<!--Celda que contiene el boton de division, se manda a llamar a la funcion
+			opera que lleva como parametro (div)-->
+			<td width=50 height=50><button  type='button' onclick='opera(" div")'>/</button>
+				</td>
+			</tr>
+			<tr>
+				<td width=50 height=50><button type='button' onclick='escribe(1)'>1</button>
+				</td>
+				<td width=50 height=50><button type='button' onclick='escribe(2)'>2</button>
+				</td>
+				<td width=50 height=50><button type='button' onclick='escribe(3)'>3</button>
+				</td>
+				<!--Celda que contiene el boton de division, se manda a llamar a la funcion
+			opera que lleva como parametro (multi)-->
+				<td width=50 height=50><button type='button' onclick='opera("multi")'>x</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td width=50 height=50><button type='button' onclick='escribe(0)'>0</button>
+				</td>
+				<td width=50 height=50><button type='button' onclick='resultado()'>=</button>
+				</td>
+				<!--Celda que contiene el boton de division, se manda a llamar a la funcion
+			opera que lleva como parametro (suma)-->
+				<td width=50 height=50><button type='button' onclick='opera("suma")'>+</button>
+				</td>
+				<!--Celda que contiene el boton de division, se manda a llamar a la funcion
+			opera que lleva como parametro (resta)-->
+				<td width=50 height=50><button type='button' onclick='opera("resta")'>-</button>
+				</td>
+				<td width=50 height=50><button type='button' onclick='opera("factorial")'>!</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+
+
+	</script>
+
+</body>
+
+</html>
